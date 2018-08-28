@@ -13,7 +13,7 @@ mongoose.connection.once('open', () => {
 
 const app = express();
 const server = http.createServer(app);
-const PORT = process.env.PORT || 3800;
+const PORT = process.env.PORT || 4000;
 
 app.use(
 	'/graphql',
