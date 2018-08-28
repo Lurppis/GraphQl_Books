@@ -3,6 +3,7 @@ const http = require('http');
 const graphqlHTTP = require('express-graphql');
 const schema = require('./schema/schema');
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 mongoose.connect(
 	'mongodb://graphqlUser:admin123@ds235302.mlab.com:35302/book_list'
@@ -13,7 +14,9 @@ mongoose.connection.once('open', () => {
 
 const app = express();
 const server = http.createServer(app);
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 3800;
+
+app.use(cors());
 
 app.use(
 	'/graphql',
